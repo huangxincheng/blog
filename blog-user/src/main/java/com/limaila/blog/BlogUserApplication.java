@@ -1,5 +1,6 @@
 package com.limaila.blog;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -10,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+@MapperScan({"com.limaila.blog.**.dao"})
 public class BlogUserApplication {
 
 	public static void main(String[] args) {
