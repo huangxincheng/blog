@@ -53,7 +53,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>microservicecloud</finalName>
+        <finalName>blog</finalName>
         <!-- 允许访问src/main/resources的所有文件 -->
         <resources>
             <resource>
