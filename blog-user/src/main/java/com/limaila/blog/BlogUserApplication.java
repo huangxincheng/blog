@@ -16,16 +16,16 @@ public class BlogUserApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext cac = SpringApplication.run(BlogUserApplication.class, args);
-		while(true) {
-			// 当修改nacos时候可以动态的看到值已经发生变化
-			String userName = cac.getEnvironment().getProperty("user.name");
-			System.out.println(userName);
-			try {
-				TimeUnit.SECONDS.sleep(1);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
+//		while(true) {
+//			// 当修改nacos时候可以动态的看到值已经发生变化
+//			String userName = cac.getEnvironment().getProperty("user.name");
+//			System.out.println(userName);
+//			try {
+//				TimeUnit.SECONDS.sleep(1);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//		}
 	}
 
 }
