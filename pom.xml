@@ -10,6 +10,7 @@
     <modules>
         <module>blog-codeGenerator</module>
         <module>blog-user</module>
+        <module>blog-gateway</module>
     </modules>
     <packaging>pom</packaging>
 
