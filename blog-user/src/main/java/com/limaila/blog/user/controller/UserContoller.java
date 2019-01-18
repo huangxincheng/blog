@@ -1,5 +1,6 @@
 package com.limaila.blog.user.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.limaila.blog.user.entity.User;
 import com.limaila.blog.user.service.UserService;
 import io.swagger.annotations.Api;
@@ -31,6 +32,7 @@ public class UserContoller {
     @ApiOperation(value = "获取用户信息", notes = "根据用户的id获取用户信息", httpMethod = "GET")
     @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer")
     @GetMapping("/get/{id}")
+    @SentinelResource("UserContoller.get")
     public User get(@PathVariable("id") Integer id) {
         return userService.getOne(id);
     }
