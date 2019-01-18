@@ -9,15 +9,15 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * Author: huangxincheng
+ * swagger urL: http://localhost:8082/blog-user/swagger-ui.html
+ * apidoc url: http://localhost:8082/blog-user/api2doc/home.html
  * <p>
  * <p>
  **/
 @Configuration
-@EnableSwagger2
 public class SwaggerConfig {
 
     @Value("${swagger2.enable}")
@@ -29,7 +29,7 @@ public class SwaggerConfig {
                 .enable(swagger2Enable)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.limaila.blog.**.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.limaila.blog"))
                 .paths(PathSelectors.any())
                 .build();
     }

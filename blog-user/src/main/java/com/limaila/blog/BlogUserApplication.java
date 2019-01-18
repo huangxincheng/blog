@@ -5,12 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.util.concurrent.TimeUnit;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableSwagger2
 @MapperScan({"com.limaila.blog.**.dao"})
 public class BlogUserApplication {
 
