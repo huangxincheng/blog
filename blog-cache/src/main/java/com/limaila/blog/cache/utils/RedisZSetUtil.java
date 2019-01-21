@@ -5,5 +5,5 @@ package com.limaila.blog.cache.utils;
  * <p>
  * <p>
  **/
-public class RedisZSetUtil {
+public class RedisZSetUtil extends RedisBaseUtil {
 }

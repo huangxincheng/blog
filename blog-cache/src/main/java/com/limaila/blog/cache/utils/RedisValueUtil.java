@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
  **/
 @Component
 @Slf4j
-public class RedisValueUtil {
+public class RedisValueUtil extends RedisBaseUtil {
 
 
     private static ValueOperations<String, String> valueOperations;
@@ -143,28 +143,6 @@ public class RedisValueUtil {
             return valueOperations.multiSetIfAbsent(map);
         } catch (Exception e) {
             log.error("RedisUtil msetnx", e);
-            return null;
-        }
-    }
-
-    public static Boolean delKey(String key) {
-        try {
-            return valueOperations.getOperations().delete(key);
-        } catch (Exception e) {
-            log.error("RedisUtil del", e);
-            return null;
-        }
-    }
-
-    public static Long delKeys(String ... keys) {
-        return delKeys(Arrays.asList(keys));
-    }
-
-    public static Long delKeys(Collection<String> keys) {
-        try {
-            return valueOperations.getOperations().delete(keys);
-        } catch (Exception e) {
-            log.error("RedisUtil delKeys");
             return null;
         }
     }

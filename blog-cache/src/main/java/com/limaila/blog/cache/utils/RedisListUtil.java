@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  **/
 @Component
 @Slf4j
-public class RedisListUtil {
+public class RedisListUtil extends RedisBaseUtil {
 
     private static ListOperations<String, String> listOperations;
 
