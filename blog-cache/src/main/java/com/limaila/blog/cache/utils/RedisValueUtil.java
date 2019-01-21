@@ -20,10 +20,15 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class RedisValueUtil {
 
-    @Autowired
-    private ValueOperations<String, String> valueOperations;
 
-    public String get(String key) {
+    private static ValueOperations<String, String> valueOperations;
+
+    @Autowired
+    public void setValueOperations(ValueOperations<String, String> valueOperations) {
+        RedisValueUtil.valueOperations = valueOperations;
+    }
+
+    public static String get(String key) {
         try {
             return valueOperations.get(key);
         } catch (Exception e) {
@@ -32,7 +37,7 @@ public class RedisValueUtil {
         }
     }
 
-    public boolean set(String key, String value) {
+    public static boolean set(String key, String value) {
         try {
             valueOperations.set(key, value);
             return true;
@@ -42,7 +47,7 @@ public class RedisValueUtil {
         }
     }
 
-    public boolean setex(String key, String value, int expire) {
+    public static boolean setex(String key, String value, int expire) {
         try {
             valueOperations.set(key, value, expire, TimeUnit.SECONDS);
             return true;
@@ -52,7 +57,7 @@ public class RedisValueUtil {
         }
     }
 
-    public boolean setnx(String key, String value) {
+    public static boolean setnx(String key, String value) {
         try {
             return valueOperations.setIfAbsent(key, value);
         } catch (Exception e) {
@@ -61,7 +66,7 @@ public class RedisValueUtil {
         }
     }
 
-    public Long incr(String key, long delta) {
+    public static Long incr(String key, long delta) {
         try {
             return valueOperations.increment(key, delta);
         } catch (Exception e) {
@@ -71,7 +76,7 @@ public class RedisValueUtil {
     }
 
 
-    public Double incr(String key, double delta) {
+    public static Double incr(String key, double delta) {
         try {
             return valueOperations.increment(key, delta);
         } catch (Exception e) {
@@ -80,7 +85,7 @@ public class RedisValueUtil {
         }
     }
 
-    public Long decr(String key, long delta) {
+    public static Long decr(String key, long delta) {
         try {
             return valueOperations.increment(key, -delta);
         } catch (Exception e) {
@@ -90,7 +95,7 @@ public class RedisValueUtil {
     }
 
 
-    public Double decr(String key, double delta) {
+    public static Double decr(String key, double delta) {
         try {
             return valueOperations.increment(key, -delta);
         } catch (Exception e) {
@@ -100,7 +105,7 @@ public class RedisValueUtil {
     }
 
 
-    public List<String> mget(String... keys) {
+    public static List<String> mget(String... keys) {
         try {
             return valueOperations.multiGet(Arrays.asList(keys));
         } catch (Exception e) {
@@ -109,7 +114,7 @@ public class RedisValueUtil {
         }
     }
 
-    public List<String> mget(Collection<String> keys) {
+    public static List<String> mget(Collection<String> keys) {
         try {
             return valueOperations.multiGet(keys);
         } catch (Exception e) {
@@ -118,7 +123,7 @@ public class RedisValueUtil {
         }
     }
 
-    public boolean mset(Map<String, String> map) {
+    public static boolean mset(Map<String, String> map) {
         try {
             valueOperations.multiSet(map);
             return true;
@@ -128,7 +133,7 @@ public class RedisValueUtil {
         }
     }
 
-    public String getSet(String key, String value) {
+    public static String getSet(String key, String value) {
         try {
             return valueOperations.getAndSet(key, value);
         } catch (Exception e) {
