@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Author: huangxincheng
+ * Redis String 类型操作 util
  * <p>
  * <p>
  **/
@@ -86,32 +87,17 @@ public class RedisValueUtil {
     }
 
     public static Long decr(String key, long delta) {
-        try {
-            return valueOperations.increment(key, -delta);
-        } catch (Exception e) {
-            log.error("RedisUtil decr", e);
-            return null;
-        }
+        return incr(key, -delta);
     }
 
 
     public static Double decr(String key, double delta) {
-        try {
-            return valueOperations.increment(key, -delta);
-        } catch (Exception e) {
-            log.error("RedisUtil decr", e);
-            return null;
-        }
+        return incr(key, -delta);
     }
 
 
     public static List<String> mget(String... keys) {
-        try {
-            return valueOperations.multiGet(Arrays.asList(keys));
-        } catch (Exception e) {
-            log.error("RedisUtil mget", e);
-            return null;
-        }
+        return mget(Arrays.asList(keys));
     }
 
     public static List<String> mget(Collection<String> keys) {
@@ -143,4 +129,43 @@ public class RedisValueUtil {
     }
 
 
+    public static Long size(String key) {
+        try {
+            return valueOperations.size(key);
+        } catch (Exception e) {
+            log.error("RedisUtil size", e);
+            return null;
+        }
+    }
+
+    public static Boolean msetnx(Map<String,String> map) {
+        try {
+            return valueOperations.multiSetIfAbsent(map);
+        } catch (Exception e) {
+            log.error("RedisUtil msetnx", e);
+            return null;
+        }
+    }
+
+    public static Boolean delKey(String key) {
+        try {
+            return valueOperations.getOperations().delete(key);
+        } catch (Exception e) {
+            log.error("RedisUtil del", e);
+            return null;
+        }
+    }
+
+    public static Long delKeys(String ... keys) {
+        return delKeys(Arrays.asList(keys));
+    }
+
+    public static Long delKeys(Collection<String> keys) {
+        try {
+            return valueOperations.getOperations().delete(keys);
+        } catch (Exception e) {
+            log.error("RedisUtil delKeys");
+            return null;
+        }
+    }
 }
