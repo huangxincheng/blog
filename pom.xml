@@ -11,6 +11,7 @@
         <module>blog-codeGenerator</module>
         <module>blog-user</module>
         <module>blog-gateway</module>
+        <module>blog-cache</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -34,7 +35,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -59,6 +59,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>1.1.10</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.55</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
