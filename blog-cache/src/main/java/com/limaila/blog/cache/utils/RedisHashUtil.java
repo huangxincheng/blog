@@ -11,6 +11,7 @@ import java.util.*;
 
 /**
  * Author: huangxincheng
+ * Redis Hash 类型操作 util
  * <p>
  * <p>
  **/
