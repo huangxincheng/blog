@@ -1,5 +1,6 @@
 package com.limaila.blog;
 
+import com.limaila.blog.cache.utils.RedisLockUtil;
 import com.limaila.blog.cache.utils.RedisValueUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,13 +15,21 @@ public class BlogUserApplicationTests {
 	@Autowired
 	private RedisValueUtil redisUtil;
 
+	@Autowired
+	RedisLockUtil lockUtil;
+
 	@Test
 	public void contextLoads() {
-		String a = redisUtil.get("a");
-		System.out.println(a);
+//		String a = redisUtil.get("a");
+//		System.out.println(a);
 //        Double ab1 = redisUtil.decr("ab1", 0.5);
 //        System.out.println(ab1);
-    }
+
+		boolean aklock = lockUtil.getLock("aklock", "1", 100);
+		boolean aklock1 = lockUtil.getLock("aklock", "2", 100);
+		System.out.println(aklock + ", " + aklock1);
+
+	}
 
 }
 
