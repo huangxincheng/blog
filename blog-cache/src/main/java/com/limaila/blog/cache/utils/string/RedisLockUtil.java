@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.data.redis.core.script.RedisScript;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
@@ -35,10 +36,10 @@ public class RedisLockUtil {
      * @return
      */
 
-    public boolean getLock(String lockKey, String clientId, int expireTime) {
+    public static boolean getLock(String lockKey, String clientId, long expireTime) {
         String script = "if redis.call('setNx',KEYS[1],ARGV[1]) then if redis.call('get',KEYS[1])==ARGV[1] then redis.call('expire',KEYS[1],ARGV[2]) else return 0 end end";
         RedisScript<String> redisScript = new DefaultRedisScript<>(script, String.class);
-        String result = redisTemplate.execute(redisScript, Collections.singletonList(lockKey), clientId, expireTime);
+        String result = redisTemplate.execute(redisScript, Collections.singletonList(lockKey), clientId, String.valueOf(expireTime));
         if(SUCCESS.equals(result)){
            return true;
         }

@@ -33,19 +33,24 @@ public class BlogUserApplicationTests {
 //		boolean aklock = lockUtil.getLock("aklock", "1", 100);
 //		boolean aklock1 = lockUtil.getLock("aklock", "2", 100);
 //		System.out.println(aklock + ", " + aklock1);
-		User user = new User();
-		user.setActiveTime(new Date());
-		user.setCreateTime(new Date());
-		user.setEmail("249@qq.com");
-		user.setId(3);
-		user.setIsCanUse(true);
-		user.setPassword("66500");
-		user.setPhone("1326531572");
-		user.setUsername("嘻嘻嘻");
-		RedisValueUtil.set("user_3", user);
 
-		User user_3 = RedisValueUtil.getToObject("user_3", User.class);
-		System.out.println(user_3);
+		boolean lock = RedisLockUtil.getLock("akLo", "ok1", 1000L);
+
+		boolean lock2 = RedisLockUtil.getLock("akLo", "ok2", 1000L);
+
+//		User user = new User();
+//		user.setActiveTime(new Date());
+//		user.setCreateTime(new Date());
+//		user.setEmail("249@qq.com");
+//		user.setId(3);
+//		user.setIsCanUse(true);
+//		user.setPassword("66500");
+//		user.setPhone("1326531572");
+//		user.setUsername("嘻嘻嘻");
+//		RedisValueUtil.set("user_3", user);
+//
+//		User user_3 = RedisValueUtil.getToObject("user_3", User.class);
+//		System.out.println(user_3);
 	}
 
 }
