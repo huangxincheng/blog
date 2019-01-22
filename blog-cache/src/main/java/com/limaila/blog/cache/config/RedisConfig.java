@@ -43,8 +43,7 @@ public class RedisConfig {
         // 设置hash key 和value序列化模式
         template.setHashKeySerializer(new StringRedisSerializer());
         template.setHashValueSerializer(new StringRedisSerializer());
-
-        template.setDefaultSerializer(new GenericFastJsonRedisSerializer());
+        template.setDefaultSerializer(new StringRedisSerializer());
         template.setConnectionFactory(factory);
         template.afterPropertiesSet();
         return template;
