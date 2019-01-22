@@ -1,4 +1,4 @@
-package com.limaila.blog.cache.utils.string;
+package com.limaila.blog.cache.utils.redis;
 
 /**
  * Author: huangxincheng

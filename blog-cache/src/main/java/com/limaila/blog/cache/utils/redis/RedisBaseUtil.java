@@ -1,4 +1,4 @@
-package com.limaila.blog.cache.utils.string;
+package com.limaila.blog.cache.utils.redis;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

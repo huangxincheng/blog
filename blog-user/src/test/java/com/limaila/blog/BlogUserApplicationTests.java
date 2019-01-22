@@ -1,15 +1,12 @@
 package com.limaila.blog;
 
-import com.limaila.blog.cache.utils.string.RedisLimitUtil;
-import com.limaila.blog.cache.utils.string.RedisValueUtil;
-import com.limaila.blog.user.entity.User;
+import com.limaila.blog.cache.utils.redis.RedisLimitUtil;
+import com.limaila.blog.cache.utils.redis.RedisValueUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.Date;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
