@@ -1,5 +1,6 @@
 package com.limaila.blog.cache.utils.string;
 
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.ValueOperations;
@@ -38,6 +39,15 @@ public class RedisValueUtil extends RedisBaseUtil {
         }
     }
 
+    public static <T> T getToObject(String key, Class<T> clazz) {
+        return JSON.parseObject(get(key), clazz);
+    }
+
+    public static <T> List<T> getToArray(String key, Class<T> clazz) {
+        return JSON.parseArray(get(key), clazz);
+    }
+
+
     public static boolean set(String key, String value) {
         try {
             valueOperations.set(key, value);
@@ -48,6 +58,10 @@ public class RedisValueUtil extends RedisBaseUtil {
         }
     }
 
+    public static boolean set(String key, Object value) {
+        return set(key, JSON.toJSONString(value));
+    }
+
     public static boolean setex(String key, String value, int expire) {
         try {
             valueOperations.set(key, value, expire, TimeUnit.SECONDS);
@@ -56,6 +70,10 @@ public class RedisValueUtil extends RedisBaseUtil {
             log.error("RedisUtil set", e);
             return false;
         }
+    }
+
+    public static boolean setex(String key, Object value, int expire) {
+        return setex(key, JSON.toJSONString(value), expire);
     }
 
     public static boolean setnx(String key, String value) {
