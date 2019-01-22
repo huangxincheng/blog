@@ -1,5 +1,6 @@
 package com.limaila.blog;
 
+import com.limaila.blog.cache.utils.string.RedisLockUtil;
 import com.limaila.blog.cache.utils.string.RedisValueUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,6 +30,11 @@ public class BlogUserApplicationTests {
 //
 //		User user_3 = RedisValueUtil.getToObject("user_3", User.class);
 //		System.out.println(user_3);
+		RedisLockUtil.getLock("ak", "uuid_1", 1000);
+		RedisLockUtil.getLock("ak", "uuid_2", 1000);
+
+//		RedisLockUtil.releaseLock("akL1", "2");
+//		RedisLockUtil.releaseLock("akL1", "1");
 	}
 
 }

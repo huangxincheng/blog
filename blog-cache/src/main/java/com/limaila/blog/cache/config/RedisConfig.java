@@ -1,6 +1,7 @@
 package com.limaila.blog.cache.config;
 
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
+import com.alibaba.fastjson.support.spring.GenericFastJsonRedisSerializer;
 import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -42,25 +43,12 @@ public class RedisConfig {
         // 设置hash key 和value序列化模式
         template.setHashKeySerializer(new StringRedisSerializer());
         template.setHashValueSerializer(new StringRedisSerializer());
+
+        template.setDefaultSerializer(new GenericFastJsonRedisSerializer());
         template.setConnectionFactory(factory);
         template.afterPropertiesSet();
         return template;
 //        return new StringRedisTemplate(factory);
-    }
-
-
-    @Bean
-    public RedisTemplate<String, Object> objectRedisTemplate(RedisConnectionFactory factory) {
-        RedisTemplate<String, Object> template = new RedisTemplate<>();
-        // 值采用json序列化
-        template.setValueSerializer(new FastJsonRedisSerializer<>(Object.class));
-        template.setKeySerializer(new StringRedisSerializer());
-        // 设置hash key 和value序列化模式
-        template.setHashKeySerializer(new StringRedisSerializer());
-        template.setHashValueSerializer(new FastJsonRedisSerializer<>(Object.class));
-        template.setConnectionFactory(factory);
-        template.afterPropertiesSet();
-        return template;
     }
 
 
