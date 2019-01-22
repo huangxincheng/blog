@@ -1,8 +1,8 @@
 package com.limaila.blog;
 
 import com.alibaba.fastjson.JSON;
-import com.limaila.blog.cache.utils.RedisLockUtil;
-import com.limaila.blog.cache.utils.RedisValueUtil;
+import com.limaila.blog.cache.utils.string.RedisLockUtil;
+import com.limaila.blog.cache.utils.string.RedisValueUtil;
 import com.limaila.blog.user.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;

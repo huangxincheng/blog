@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.*;
-import org.springframework.data.redis.serializer.GenericToStringSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
@@ -35,7 +34,7 @@ public class RedisConfig {
      * @return
      */
     @Bean
-    public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
+    public RedisTemplate<String, String> stringRedisTemplate(RedisConnectionFactory factory) {
         RedisTemplate<String, String> template = new RedisTemplate<>();
         // 值采用json序列化
         template.setValueSerializer(new StringRedisSerializer());
@@ -47,6 +46,21 @@ public class RedisConfig {
         template.afterPropertiesSet();
         return template;
 //        return new StringRedisTemplate(factory);
+    }
+
+
+    @Bean
+    public RedisTemplate<String, Object> objectRedisTemplate(RedisConnectionFactory factory) {
+        RedisTemplate<String, Object> template = new RedisTemplate<>();
+        // 值采用json序列化
+        template.setValueSerializer(new FastJsonRedisSerializer<>(Object.class));
+        template.setKeySerializer(new StringRedisSerializer());
+        // 设置hash key 和value序列化模式
+        template.setHashKeySerializer(new StringRedisSerializer());
+        template.setHashValueSerializer(new FastJsonRedisSerializer<>(Object.class));
+        template.setConnectionFactory(factory);
+        template.afterPropertiesSet();
+        return template;
     }
 
 
