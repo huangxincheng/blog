@@ -1,5 +1,6 @@
 package com.limaila.blog;
 
+import com.limaila.blog.cache.utils.string.RedisLimitUtil;
 import com.limaila.blog.cache.utils.string.RedisValueUtil;
 import com.limaila.blog.user.entity.User;
 import org.junit.Test;
@@ -19,17 +20,17 @@ public class BlogUserApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		User user = new User();
-		user.setActiveTime(new Date());
-		user.setCreateTime(new Date());
-		user.setEmail("249@qq.com");
-		user.setId(3);
-		user.setIsCanUse(true);
-		user.setPassword("66500");
-		user.setPhone("1326531572");
-		user.setUsername("嘻嘻嘻");
-		RedisValueUtil.set("user_3", user);
-		System.out.println(1);
+//		User user = new User();
+//		user.setActiveTime(new Date());
+//		user.setCreateTime(new Date());
+//		user.setEmail("249@qq.com");
+//		user.setId(3);
+//		user.setIsCanUse(true);
+//		user.setPassword("66500");
+//		user.setPhone("1326531572");
+//		user.setUsername("嘻嘻嘻");
+//		RedisValueUtil.set("user_3", user);
+//		System.out.println(1);
 //
 //		User user_3 = RedisValueUtil.getToObject("user_3", User.class);
 //		System.out.println(user_3);
@@ -48,6 +49,13 @@ public class BlogUserApplicationTests {
 //				System.out.println("嘿嘿 releaseLock");
 //			}
 //		}
+
+		boolean limitKey = RedisLimitUtil.isLimit("limitKey", 5, 1000);
+		System.out.println(limitKey);
+		for (int i = 1 ; i < 10; i ++) {
+			boolean limitKey1 = RedisLimitUtil.isLimit("limitKey", 5, 1000);
+			System.out.println(limitKey1);
+		}
 
 
 	}
