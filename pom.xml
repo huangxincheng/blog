@@ -12,6 +12,7 @@
         <module>blog-user</module>
         <module>blog-gateway</module>
         <module>blog-cache</module>
+        <module>blog-article</module>
     </modules>
     <packaging>pom</packaging>
 
