@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
  * <p>
  * <p>
  **/
-@Controller
+@RestController
 @RequestMapping("/article")
 public class ArticleController {
 
@@ -24,17 +24,17 @@ public class ArticleController {
     }
 
     @PostMapping("/add")
-    public int add(@RequestBody Article article) {
+    public Integer add(@RequestBody Article article) {
         return articleService.addArticle(article);
     }
 
     @PutMapping("/update")
-    public int update(@RequestBody Article article) {
+    public Integer update(@RequestBody Article article) {
         return articleService.updateArticle(article);
     }
 
     @DeleteMapping("/delete/{id}")
-    public int delete(@PathVariable Integer id) {
+    public Integer delete(@PathVariable Integer id) {
         return articleService.deleteArticle(id);
     }
 
