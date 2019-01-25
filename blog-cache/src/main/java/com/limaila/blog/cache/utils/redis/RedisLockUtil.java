@@ -32,16 +32,16 @@ public class RedisLockUtil {
      * 获取锁
      * @param lockKey 锁的key
      * @param clientId 加锁的客户端Id - 可采用UUID
-     * @param expireTime 单位-秒
+     * @param expireSecond 失效时间 单位-秒
      *
      *                   PX 是毫秒
      *                   EX 是秒
      * @return
      */
-    public static boolean getLock(String lockKey, String clientId, int expireTime) {
+    public static boolean getLockNotWait(String lockKey, String clientId, int expireSecond) {
 //                String script = "if redis.call('set', KEYS[1], ARGV[1], 'NX', 'PX', ARGV[2]) then return 1 else return 0 end";
         RedisScript<Long> redisScript = RedisScript.of("if redis.call('set', KEYS[1], ARGV[1], 'NX', 'EX', ARGV[2]) then return 1 else return 0 end", Long.class);
-        Long result = redisTemplate.execute(redisScript, Collections.singletonList(lockKey), clientId, String.valueOf(expireTime));
+        Long result = redisTemplate.execute(redisScript, Collections.singletonList(lockKey), clientId, String.valueOf(expireSecond));
         if(SUCCESS.equals(result)){
            return true;
         }
