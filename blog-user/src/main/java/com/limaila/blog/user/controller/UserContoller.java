@@ -26,7 +26,7 @@ public class UserContoller implements UserFeign {
 
     @Override
     @SentinelResource(blockHandler = "getBlockHandler", fallback = "getFallback")
-    public User get(@PathVariable("id") Integer id) {
+    public User get(@PathVariable Integer id) {
         return userService.getOne(id);
     }
 
