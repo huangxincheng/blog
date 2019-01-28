@@ -65,6 +65,11 @@
             <artifactId>blog-cache</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.limaila</groupId>
+            <artifactId>blog-base</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
 
     </dependencies>
 
