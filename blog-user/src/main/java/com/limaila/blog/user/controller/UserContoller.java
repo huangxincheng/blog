@@ -37,22 +37,6 @@ public class UserContoller {
     @GetMapping("/get/{id}")
     @SentinelResource(blockHandler = "getBlockHandler",fallback = "getFallback")
     public User get(@PathVariable("id") Integer id) {
-//        Entry entry = null;
-//        try {
-//            entry = SphU.entry("UserContoller_get");
-//            // 真正的业务逻辑.
-//            return userService.getOne(id);
-//        } catch (BlockException ex) {
-//            // 处理限流降级异常
-//            System.out.println("ex" + ex.getMessage());
-//            User user = new User();
-//            user.setId(-1);
-//            return user;
-//        } finally {
-//            if (entry != null) {
-//                entry.exit();
-//            }
-//        }
         return userService.getOne(id);
     }
 
