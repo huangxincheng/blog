@@ -14,6 +14,7 @@
         <module>blog-cache</module>
         <module>blog-article</module>
         <module>blog-base</module>
+        <module>blog-stream</module>
     </modules>
     <packaging>pom</packaging>
 
