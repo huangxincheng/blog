@@ -5,7 +5,6 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.limaila.blog.user.entity.User;
 import com.limaila.blog.user.feign.UserFeign;
 import com.limaila.blog.user.service.UserService;
-import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
  * <p>
  *     ApiDoc 和 Swagger2 对比
  *      http://blog.51cto.com/13613194/2090764
-*
  **/
 @RestController
 public class UserContoller implements UserFeign {
