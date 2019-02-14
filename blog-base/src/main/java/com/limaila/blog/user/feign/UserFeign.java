@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
  *     @FeignClient(value = "blog-user", path = "blog-user")
  *     @FeignClient(value = "blog-user")
  **/
-@FeignClient(value = "blog-user", path = "blog-user")
-//@FeignClient(value = "blog-user")
+//@FeignClient(value = "blog-user", path = "blog-user")
+@FeignClient(value = "blog-user")
 public interface UserFeign {
 
     @GetMapping("/user/get/{id}")
