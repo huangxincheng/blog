@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * <p>
  * <p>
  **/
-@Component
+//@Component
 public class ComsumerReceive {
 
     @StreamListener("input1")

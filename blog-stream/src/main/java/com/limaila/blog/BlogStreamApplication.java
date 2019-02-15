@@ -28,7 +28,6 @@ public class BlogStreamApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BlogStreamApplication.class, args);
-        producerSend.send("tagStr" ,"hello world");
-        producerSend.send("tagStrAAA" ,"hello world AAA");
+        System.out.println(producerSend);
     }
 }
