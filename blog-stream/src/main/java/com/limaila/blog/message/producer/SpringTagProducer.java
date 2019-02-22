@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * <p>
  **/
 @Component
-public class TopicNotTagProducer {
+public class SpringTagProducer {
 
 
     @Value("${demo.rocketmq.topic}")

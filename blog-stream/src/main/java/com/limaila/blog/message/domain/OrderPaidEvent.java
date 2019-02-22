@@ -32,4 +32,12 @@ public class OrderPaidEvent implements Serializable {
     public void setPaidMoney(BigDecimal paidMoney) {
         this.paidMoney = paidMoney;
     }
+
+    @Override
+    public String toString() {
+        return "OrderPaidEvent{" +
+                "orderId='" + orderId + '\'' +
+                ", paidMoney=" + paidMoney +
+                '}';
+    }
 }
