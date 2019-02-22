@@ -15,6 +15,7 @@
         <module>blog-article</module>
         <module>blog-base</module>
         <module>blog-stream</module>
+        <module>blog-admin-server</module>
     </modules>
     <packaging>pom</packaging>
 
