@@ -107,7 +107,7 @@
 
 
             <!-- mvn package docker:build -->
-            <plugin>
+            <!--<plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.13</version>
@@ -131,7 +131,7 @@
                         </resource>
                     </resources>
                 </configuration>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 
