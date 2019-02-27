@@ -2,6 +2,7 @@ package com.limaila.blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
@@ -10,7 +11,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * <p>
  **/
 @SpringBootApplication
-@EnableScheduling
+@EnableScheduling //开启定时任务
+@EnableAsync //开启异步任务
 public class BlogScheduleApplication {
     public static void main(String[] args) {
         SpringApplication.run(BlogScheduleApplication.class, args);
