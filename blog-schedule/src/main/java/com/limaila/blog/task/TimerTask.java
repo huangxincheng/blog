@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
  * <p>
  **/
 @Component
-public class TwTask {
+public class TimerTask {
 
     /**
      * 2秒执行一次
      */
-    @Scheduled(fixedRate = 2000)
+//    @Scheduled(fixedRate = 2000)
     public void foo() {
         System.out.println("嘿嘿 :" + System.currentTimeMillis());
     }
