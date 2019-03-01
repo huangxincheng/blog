@@ -102,10 +102,10 @@
         -->
 
         <!--TODO 修改点1-->
-        <table tableName="kw_article" domainObjectName="Article"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
+        <table tableName="tops_api_account" domainObjectName="TopsApiAccount"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
             <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
             <!-- 用来修改表中某个列的属性，MBG会使用修改后的列来生成domain的属性；
                column:要重新设置的列名；
