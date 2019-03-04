@@ -20,8 +20,8 @@
     -->
 
     <!-- 读取application.properties的变量 -->
-    <springProperty scope="context" name="logPath" source="logging.path" defaultValue="/tmp/log"/>
-    <springProperty scope="context" name="applicationName" source="spring.application.name" defaultValue="duobao_service"/>
+    <springProperty scope="context" name="logPath" source="logging.path" defaultValue="app/logs"/>
+    <springProperty scope="context" name="applicationName" source="spring.application.name" defaultValue="undefined"/>
     <springProperty scope="context" name="logLevel" source="logging.level.root" defaultValue="debug"/>
 
     <contextName>${applicationName}</contextName>
